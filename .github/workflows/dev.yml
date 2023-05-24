@@ -1,0 +1,29 @@
+name: Workflow Dave
+run-name: Phase de développement
+on:
+  push:
+    branches: develop
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récup le code de mon repo
+        uses: actions/checkout@v3
+
+      - name: Install dependances
+        run: npm ci
+
+      - name: Lancer mes tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Deployer vers Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: "--prod"
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+          working-directory: ./dist"
