@@ -1,0 +1,11 @@
+name: Mon Workflow qui tâche
+run-name: J'suis en train de faire des trucs
+on:
+  push:
+    branches: main
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dis bonjour, toi!
+        run: echo "Bonjouuuuuurr"
