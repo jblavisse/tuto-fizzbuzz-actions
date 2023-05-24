@@ -10,10 +10,6 @@ jobs:
       - name: Récup le code de mon repo
         uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
       - name: Install dependances
         run: npm install
 
@@ -30,4 +26,3 @@ jobs:
           vercel-args: "--prod"
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
-          working-directory: ./dist"
