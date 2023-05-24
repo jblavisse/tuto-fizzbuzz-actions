@@ -10,8 +10,12 @@ jobs:
       - name: Récup le code de mon repo
         uses: actions/checkout@v3
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Install dependances
-        run: npm ci
+        run: npm install
 
       - name: Lancer mes tests
         run: npm test
@@ -20,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: Deployer vers Vercel
-        uses: amondnet/vercel-action@v25.1.0
+        uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-args: "--prod"
