@@ -19,6 +19,9 @@ jobs:
       - name: Dire "C'est gagné!"
         run: echo "C'est gagné"
 
+      - name: Build pour la prod
+        run: npm run build
+
       - name: Deployer vers Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
