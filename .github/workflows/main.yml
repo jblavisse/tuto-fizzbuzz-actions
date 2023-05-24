@@ -7,6 +7,9 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - name: Récup le code de mon repo
+        uses: actions/checkout@v3
+
       - name: Install dependances
         run: npm ci
 
